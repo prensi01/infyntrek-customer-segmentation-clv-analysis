@@ -1,0 +1,5 @@
+Cluster,Customer_Count,Average_Recency,Average_Frequency,Average_CLV,Total_Revenue,Median_CLV,Customer_Percentage,Revenue_Contribution_Percentage
+0,1377,58.04,1.51,384.22,529065.5,341.36,31.74,5.95
+1,938,259.41,1.37,385.39,361494.46,294.18,21.62,4.07
+2,571,19.77,15.84,9823.43,5609180.83,4521.49,13.16,63.12
+3,1452,46.06,4.21,1644.26,2387468.1,1316.16,33.47,26.86
