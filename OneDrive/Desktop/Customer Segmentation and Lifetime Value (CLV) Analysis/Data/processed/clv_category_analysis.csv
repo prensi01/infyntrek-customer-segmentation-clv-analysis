@@ -1,0 +1,5 @@
+CLV_Category,Customer_Count,Average_CLV,Total_Revenue,Median_CLV,Customer_Percentage,Business_Recommendation
+Low Value,1085,178.03,193166.38,176.5,25.01,Use personalized offers and product bundles to encourage repeat purchases.
+Medium Value,1084,461.91,500706.78,446.4,24.99,Improve customer engagement through loyalty programs and targeted recommendations.
+High Value,1084,1066.18,1155744.35,1026.72,24.99,Provide exclusive benefits and encourage customers to increase purchase frequency.
+Very High Value,1085,6486.26,7037591.38,3049.88,25.01,"Focus on VIP rewards, premium services and long-term customer relationships."
