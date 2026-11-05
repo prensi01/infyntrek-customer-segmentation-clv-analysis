@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-# Customer Segmentation and Lifetime Value (CLV) Analysis
-
-=======
-# README
-
 # Customer Segmentation and Lifetime Value (CLV) Analysis
 
 >>>>>>> c169989 (Update Project 2 README)
