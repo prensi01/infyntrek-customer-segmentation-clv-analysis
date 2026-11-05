@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 # Customer Segmentation and Lifetime Value (CLV) Analysis
 
+=======
+# README
+
+# Customer Segmentation and Lifetime Value (CLV) Analysis
+
+>>>>>>> c169989 (Update Project 2 README)
 **Infyntrek – Data Analyst Internship | Project 2**
 
 ## 1. Project Overview
