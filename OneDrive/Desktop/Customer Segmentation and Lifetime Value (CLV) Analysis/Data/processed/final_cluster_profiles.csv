@@ -1,4 +1,0 @@
-Cluster,Customer_Count,Avg_Recency,Avg_Frequency,Avg_Monetary,Median_Recency,Median_Frequency,Median_Monetary,Customer_Percentage,Customer_Segment,Business_Recommendation
-0,1320,30.1,9.84,5492.04,17.0,7.0,2570.5,30.43,Champions / High-Value Customers,"Reward loyal customers with VIP benefits, exclusive offers and early access."
-1,981,255.11,1.39,397.17,253.0,1.0,290.51,22.61,At-Risk / Dormant Customers,"Run win-back campaigns, personalized discounts and re-engagement emails."
-2,2037,54.7,2.05,612.71,45.0,2.0,508.8,46.96,Recent / Occasional Customers,
