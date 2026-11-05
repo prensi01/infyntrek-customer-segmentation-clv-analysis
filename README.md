@@ -1,278 +1,563 @@
-# Customer Segmentation and Customer Lifetime Value (CLV) Analysis
+# Customer Segmentation and Lifetime Value (CLV) Analysis
 
-## Infyntrek Data Analyst Internship — Project 2
-
-**Project Title:** Customer Segmentation and Lifetime Value (CLV) Analysis  
-**Prepared by:** Prensi  
-**Role:** Data Analyst Intern  
-**Organization:** Infyntrek  
-**Project Type:** Data Analytics | Customer Segmentation | CLV Analysis  
-**Tools & Technologies:** Python, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, SQL, Power BI, Jupyter Notebook
-
----
+**Infyntrek – Data Analyst Internship | Project 2**
 
 ## 1. Project Overview
 
-Customer Segmentation and Customer Lifetime Value (CLV) Analysis is a data analytics project focused on understanding customer purchasing behavior, identifying valuable customer groups, and evaluating their contribution to business revenue.
+This project focuses on analyzing online retail customer transaction data to understand customer purchasing behavior, identify meaningful customer segments, and analyze Customer Lifetime Value (CLV).
 
-The project uses transactional retail data to perform RFM analysis, customer segmentation using K-Means clustering, and historical Customer Lifetime Value analysis.
+The objective was to perform data preparation, exploratory data analysis, RFM analysis, customer segmentation using K-Means clustering, CLV analysis, and business interpretation using Python, SQL, and Power BI.
 
-The objective is to transform raw transaction data into meaningful business insights that can support customer retention, targeted marketing, and data-driven decision-making.
+The project uses customer-level transaction data to understand purchasing patterns based on Recency, Frequency, and Monetary value. Customers were analyzed and grouped into meaningful segments to support customer retention, marketing strategy, and business decision-making.
 
-> **Dataset Note:** The analysis is based on the Online Retail dataset. It is used as a practical retail dataset for the internship project and does not represent actual Infyntrek fintech customer data.
+The project also includes an interactive Power BI dashboard, SQL analysis, analytical reports, and presentation material to communicate the findings.
 
----
+**Internship Organization:** Infyntrek  
+**Project:** Customer Segmentation and Lifetime Value (CLV) Analysis  
+**Department:** Data Analytics  
+**Project Domain:** Retail / Customer Analytics  
+**Project Duration:** 4 Weeks
 
 ## 2. Project Objectives
 
-The key objectives of this project are:
+The main objectives of this project were:
 
-- Analyze customer purchasing behavior using transactional data.
-- Perform data cleaning and preprocessing.
-- Calculate Recency, Frequency, and Monetary (RFM) metrics.
-- Segment customers using the K-Means clustering algorithm.
-- Analyze historical Customer Lifetime Value (CLV).
-- Identify high-value and inactive customers.
-- Evaluate revenue contribution across customer segments.
-- Develop actionable business recommendations.
-- Build an interactive Power BI dashboard for business insights.
+- Understand and analyze customer transaction data.
+- Perform data quality checks and data cleaning.
+- Identify missing values and duplicate records.
+- Analyze customer purchasing behavior.
+- Perform exploratory data analysis using Python.
+- Conduct SQL-based transaction analysis.
+- Create customer-level RFM metrics.
+- Segment customers using K-Means clustering.
+- Analyze Customer Lifetime Value (CLV).
+- Identify valuable and less-engaged customer groups.
+- Generate customer-level and business-level insights.
+- Develop an interactive Power BI dashboard.
+- Prepare final project documentation and presentation material.
 
----
+## 3. Dataset Information
 
-## 3. Dataset Description
+**Dataset Name:** Online Retail Dataset  
+**Dataset File:** `Online Retail.xlsx`
 
-The project uses the **Online Retail dataset**, which contains transactional records of a UK-based online retail business.
+The dataset contains online retail transaction records, including invoice details, product information, quantities, prices, customer IDs, and country information.
 
-### Key Dataset Attributes
+### Original Dataset Details
 
-| Column | Description |
-|---|---|
-| InvoiceNo | Transaction or invoice number |
-| StockCode | Product identifier |
-| Description | Product description |
-| Quantity | Quantity purchased |
-| InvoiceDate | Date and time of transaction |
-| UnitPrice | Price per unit |
-| CustomerID | Unique customer identifier |
-| Country | Customer's country |
+| Description | Value |
+|---|---:|
+| Total Records | 541,909 |
+| Original Columns | 8 |
+| Unique Customers | 4,372 |
+| Unique Invoices | 25,900 |
+| Duplicate Records | 5,268 |
+| Missing Values | 136,534 |
 
-The dataset was processed to prepare customer-level metrics for segmentation and CLV analysis.
+### Dataset Columns
 
----
+The dataset contains the following columns:
 
-## 4. Tools and Technologies
+- **InvoiceNo:** Invoice number associated with a transaction.
+- **StockCode:** Product code.
+- **Description:** Product description.
+- **Quantity:** Number of units purchased.
+- **InvoiceDate:** Date and time of the transaction.
+- **UnitPrice:** Price per unit.
+- **CustomerID:** Unique customer identifier.
+- **Country:** Customer's country.
 
-| Tool / Technology | Purpose |
-|---|---|
-| Python | Data analysis and processing |
-| Pandas | Data manipulation and cleaning |
-| NumPy | Numerical calculations |
-| Scikit-learn | K-Means clustering and evaluation |
-| Matplotlib | Data visualization |
-| Seaborn | Statistical visualization |
-| SQL | Customer-level data analysis |
-| SQLite | Database storage and querying |
-| Jupyter Notebook | Analysis workflow |
-| Power BI | Interactive dashboard development |
-| Git & GitHub | Version control and project sharing |
+### Target Analysis
 
----
+This project is an unsupervised customer analytics project. The main objective is to discover customer purchasing patterns and meaningful customer groups rather than predict a predefined target variable.
 
-## 5. Project Methodology
+## 4. Technologies and Tools Used
 
-### Step 1: Data Collection
+### Programming and Data Analysis
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
 
-The Online Retail dataset was imported into the project environment for analysis.
+### Machine Learning
+- Scikit-learn
+- K-Means Clustering
 
-### Step 2: Data Cleaning and Preparation
+### Customer Analytics
+- RFM Analysis
+- Customer Segmentation
+- Customer Lifetime Value (CLV) Analysis
 
-The data preparation process included:
+### Database
+- SQL
+- Database Analysis
 
-- Inspecting the dataset structure.
-- Handling missing customer identifiers.
-- Preparing transaction-level data.
-- Creating cleaned and processed datasets.
-- Preparing customer-level data for analysis.
+### Dashboard and Visualization
+- Microsoft Power BI
+- Power Query
 
-### Step 3: RFM Analysis
+### Development Environment
+- Visual Studio Code
+- Jupyter Notebook
 
-RFM analysis was performed using three customer behavior metrics:
+### Version Control
+- Git
+- GitHub
 
-- **Recency:** How recently a customer made a purchase.
-- **Frequency:** How frequently a customer purchased.
-- **Monetary:** The total monetary value of a customer's purchases.
+# Week 1: Data Preparation and Initial Exploration
 
-These metrics were used to understand customer behavior and prepare customer segmentation.
+## 5. Week 1 Objective
 
-### Step 4: Customer Segmentation
+The objective of Week 1 was to understand the dataset, inspect its structure, identify data quality issues, clean the transaction records, and prepare the dataset for customer-level analysis.
 
-The K-Means clustering algorithm was used to group customers based on their RFM characteristics.
+### 5.1 Data Loading and Inspection
 
-The clustering process included:
+The dataset was loaded into Python using Pandas.
 
-- Preparing RFM features.
-- Scaling the features.
-- Comparing different cluster counts.
-- Evaluating clustering quality using the Silhouette Score.
-- Interpreting the resulting customer segments.
+Initial inspection included:
 
-The final customer segmentation was used to identify groups with different purchasing patterns and business value.
+- Checking the number of rows and columns.
+- Inspecting column names and data types.
+- Viewing sample transaction records.
+- Checking missing values.
+- Identifying duplicate records.
+- Understanding customer and invoice information.
+- Examining quantity and unit price values.
 
-### Step 5: Customer Lifetime Value Analysis
+The original dataset contained 541,909 records and 8 columns.
 
-Historical CLV was calculated using customers' observed monetary contribution in the dataset.
+### 5.2 Data Quality Analysis
+
+The following data quality checks were performed:
+
+- Missing value analysis.
+- Duplicate record identification.
+- Data type verification.
+- Customer ID validation.
+- Invoice number analysis.
+- Quantity validation.
+- Unit price validation.
+
+The dataset contained missing values, particularly in the CustomerID column. Duplicate records were also identified.
+
+### 5.3 Data Cleaning
+
+The following cleaning steps were performed:
+
+- Removed records with missing CustomerID values.
+- Removed duplicate records.
+- Excluded credit invoices beginning with `C`.
+- Removed transactions with non-positive quantities.
+- Removed transactions with non-positive unit prices.
+- Created a `TotalAmount` column.
+
+The TotalAmount column was calculated using:
+
+```python
+df["TotalAmount"] = df["Quantity"] * df["UnitPrice"]
+```
+
+### Cleaned Dataset Details
+
+| Description | Value |
+|---|---:|
+| Original Records | 541,909 |
+| Records After Cleaning | 392,692 |
+| Records Removed | 149,217 |
+| Original Columns | 8 |
+| Cleaned Columns | 9 |
+| Unique Customers After Cleaning | 4,338 |
+| Remaining Missing Values | 0 |
+| Remaining Duplicate Records | 0 |
+
+### 5.4 Initial Transaction Analysis
+
+Initial transaction analysis was performed to understand:
+
+- Total transactions.
+- Unique customers.
+- Unique invoices.
+- Product purchasing patterns.
+- Quantity distribution.
+- Unit price distribution.
+- Country-wise transaction distribution.
+- Customer purchasing behavior.
+
+### 5.5 SQL Data Analysis
+
+SQL was used to perform transaction-level analysis and support the data analytics workflow.
+
+The analysis focused on:
+
+- Counting transaction records.
+- Identifying unique customers.
+- Analyzing invoice records.
+- Examining transaction amounts.
+- Grouping transactions by customer.
+- Supporting customer-level analysis.
+
+### 5.6 Week 1 Conclusion
+
+Week 1 successfully completed the data preparation and initial exploration phase.
+
+The original dataset was inspected and cleaned. Missing customer records, duplicate transactions, credit invoices, and invalid quantity and price values were handled.
+
+The cleaned dataset contained 392,692 transaction records and 4,338 unique customers. The prepared data provided a reliable foundation for customer-level analysis.
+
+# Week 2: Exploratory Data Analysis and RFM Analysis
+
+## 6. Week 2 Objective
+
+The objective of Week 2 was to perform exploratory data analysis and understand customer purchasing behavior using transaction patterns and RFM metrics.
+
+The analysis focused on customer recency, purchase frequency, monetary value, transaction distribution, and customer-level summaries.
+
+### 6.1 Exploratory Data Analysis (EDA)
+
+EDA was performed to understand the structure and distribution of the cleaned retail dataset.
 
 The analysis included:
 
-- Historical CLV calculation.
-- Customer ranking by CLV.
-- CLV category classification.
-- Average CLV by customer segment.
-- Revenue contribution analysis.
-- Customer retention analysis based on Recency.
+- Transaction quantity distribution.
+- Unit price distribution.
+- Total transaction amount distribution.
+- Customer purchasing behavior.
+- Invoice-level analysis.
+- Country-wise transaction analysis.
+- Customer spending patterns.
 
-**CLV Limitation:** This project analyzes historical customer value. It does not implement a predictive future CLV model.
+### 6.2 Total Transaction Amount Analysis
 
-### Step 6: Data Visualization
+A new `TotalAmount` column was created to calculate the total value of each transaction line.
 
-Visualizations were created to communicate key findings, including:
+```python
+df["TotalAmount"] = df["Quantity"] * df["UnitPrice"]
+```
 
+This column was used to analyze customer spending and transaction-level monetary values.
+
+### 6.3 RFM Analysis
+
+RFM analysis was performed to understand customer purchasing behavior using three important metrics.
+
+**Recency**
+
+Recency measures how recently a customer made a purchase. A lower Recency value indicates a more recent purchase.
+
+**Frequency**
+
+Frequency measures how often a customer made purchases. In this project, it was calculated using the customer's invoice activity.
+
+**Monetary**
+
+Monetary value measures the total amount spent by a customer.
+
+### RFM Metrics
+
+| Metric | Description |
+|---|---|
+| Recency | Number of days since the customer's latest purchase |
+| Frequency | Number of unique invoices associated with the customer |
+| Monetary | Total spending of the customer |
+
+The snapshot date used for RFM analysis was:
+
+`2011-12-10 12:50`
+
+### 6.4 RFM Dataset Creation
+
+Customer-level RFM metrics were created by grouping the cleaned transaction data using CustomerID.
+
+The resulting RFM dataset contained:
+
+| Description | Value |
+|---|---:|
+| Unique Customers | 4,338 |
+| RFM Metrics | 3 |
+| Total RFM Columns | 4 |
+
+The RFM dataset included:
+
+- CustomerID
+- Recency
+- Frequency
+- Monetary
+
+The processed transaction and RFM datasets were saved for further analysis.
+
+### 6.5 RFM Statistical Summary
+
+| Metric | Mean | Maximum |
+|---|---:|---:|
+| Recency | 92.54 days | 374 days |
+| Frequency | 4.27 invoices | 209 invoices |
+| Monetary | 2,048.69 | 280,206.02 |
+
+These statistics helped understand differences in customer engagement, purchase frequency, and spending behavior.
+
+### 6.6 Week 2 Key Findings
+
+- The original dataset contained 541,909 transaction records.
+- Data cleaning reduced the dataset to 392,692 records.
+- The cleaned dataset contained 4,338 unique customers.
+- Customer purchasing behavior varied significantly.
+- RFM metrics provided a structured way to compare customers.
+- Some customers showed higher purchase frequency and monetary value.
+- Recency helped identify customers who had not purchased recently.
+- Customer-level RFM analysis provided a foundation for segmentation.
+
+### 6.7 Week 2 Conclusion
+
+Week 2 successfully completed the exploratory data analysis and RFM analysis phase.
+
+The cleaned transaction dataset was analyzed to understand customer purchasing behavior. Customer-level Recency, Frequency, and Monetary metrics were created to support segmentation and CLV analysis.
+
+# Week 3: Customer Segmentation and CLV Analysis
+
+## 7. Week 3 Objective
+
+The objective of Week 3 was to use customer-level RFM metrics for segmentation, analyze customer groups, and understand customer lifetime value.
+
+The analysis focused on customer behavior, purchasing patterns, cluster profiles, and business interpretation.
+
+### 7.1 Feature Preparation
+
+The RFM dataset was prepared for customer segmentation.
+
+The main features used for customer-level analysis were:
+
+- Recency
+- Frequency
+- Monetary
+
+These metrics represented customer engagement, purchase frequency, and spending behavior.
+
+### 7.2 Customer Segmentation Using K-Means
+
+K-Means clustering was used to group customers with similar purchasing behavior.
+
+The clustering process included:
+
+- Preparing customer-level RFM features.
+- Applying suitable data preprocessing.
+- Developing K-Means clustering.
+- Assigning customers to clusters.
+- Analyzing cluster-level customer behavior.
+- Creating customer segment profiles.
+
+K-Means helped identify groups of customers with similar RFM characteristics.
+
+### 7.3 Customer Segment Analysis
+
+Customer segments were analyzed based on their Recency, Frequency, and Monetary characteristics.
+
+The segment analysis focused on identifying:
+
+- Customers with high purchasing activity.
+- Customers with higher monetary value.
+- Customers with lower purchase frequency.
+- Customers who had not purchased recently.
+- Customers who may require retention campaigns.
+
+The final segment names and interpretations were based on the observed cluster profiles.
+
+### 7.4 Customer Lifetime Value (CLV) Analysis
+
+Customer Lifetime Value analysis was performed to understand customer monetary contribution and identify valuable customer groups.
+
+The analysis focused on:
+
+- Customer-level monetary value.
+- Customer purchase frequency.
+- Customer segment value.
+- Comparison of customer groups.
+- Identification of valuable customer segments.
+- Business recommendations for customer retention.
+
+CLV analysis helps businesses understand customer value and make informed decisions regarding customer engagement and retention.
+
+### 7.5 Cluster Profile Analysis
+
+Cluster profiles were prepared to compare customer groups.
+
+The analysis included:
+
+- Average Recency.
+- Average Frequency.
+- Average Monetary value.
+- Customer count by cluster.
+- Comparison of customer purchasing behavior.
+
+The cluster profiles were used to interpret the characteristics of each customer group.
+
+### 7.6 Week 3 Key Findings
+
+- RFM metrics helped summarize customer purchasing behavior.
+- K-Means clustering was used to identify customer groups.
+- Customer groups showed differences in purchasing activity and monetary value.
+- Cluster profiles helped interpret customer behavior.
+- CLV analysis supported the identification of valuable customer groups.
+- Customer segmentation can help businesses develop more targeted marketing and retention strategies.
+
+### 7.7 Week 3 Conclusion
+
+Week 3 successfully completed customer segmentation and CLV analysis.
+
+Customer-level RFM metrics were used to develop customer groups using K-Means clustering. Cluster profiles and customer value analysis helped interpret customer behavior and identify potential business opportunities.
+
+# Week 4: Business Insights, Power BI Dashboard and Final Report
+
+## 8. Week 4 Objective
+
+The objective of Week 4 was to interpret customer segmentation results, prepare business insights and recommendations, develop a Power BI dashboard, and organize the final project documentation.
+
+### 8.1 Customer Segment Interpretation
+
+Customer segments were examined to understand their purchasing behavior and business value.
+
+The analysis focused on:
+
+- Customer engagement.
+- Purchase frequency.
+- Monetary contribution.
+- Customer value differences.
+- Potential retention opportunities.
+- Segment-level business implications.
+
+### 8.2 Business Insights
+
+The project provided a structured view of customer purchasing behavior through RFM analysis, customer segmentation, and CLV analysis.
+
+Important observations included:
+
+- Customer purchasing behavior differs across customers.
+- RFM metrics help identify customer engagement and spending patterns.
+- Customer segmentation can support targeted marketing activities.
+- Customer value analysis helps identify customers who contribute more to business revenue.
+- Recency analysis can help identify customers who may need re-engagement.
+- Customer segment profiles can support business decision-making.
+
+### 8.3 Business Recommendations
+
+Based on the customer analytics workflow, the following recommendations can be considered:
+
+- Develop targeted marketing campaigns for different customer segments.
+- Focus retention activities on valuable customers.
+- Re-engage customers who have not purchased recently.
+- Encourage repeat purchases among low-frequency customers.
+- Provide suitable offers based on customer purchasing behavior.
+- Monitor customer segment changes over time.
+- Review customer value metrics regularly.
+- Use customer segmentation to support personalized business strategies.
+
+### 8.4 Power BI Dashboard Development
+
+An interactive dashboard was developed using Microsoft Power BI to present customer analytics and segmentation results.
+
+The dashboard dataset was prepared using Python and imported into Power BI.
+
+Power Query was used to review and prepare the data before creating dashboard visuals.
+
+### Dashboard Analysis
+
+The dashboard was designed to communicate:
+
+- Customer-level metrics.
 - Customer segment distribution.
-- RFM cluster profiles.
-- CLV distribution.
-- CLV category distribution.
-- Average CLV by customer segment.
-- Revenue contribution by segment.
-- Recency versus CLV.
+- RFM analysis.
+- Customer value analysis.
+- Customer purchasing patterns.
+- Segment-level comparisons.
 
-### Step 7: Power BI Dashboard
+### Dashboard Purpose
 
-An interactive Power BI dashboard was developed to present customer segmentation and CLV findings.
+The dashboard provides a visual overview of customer purchasing behavior and customer segments.
 
-The dashboard includes:
+It helps users understand customer value, compare customer groups, and communicate the analysis to business stakeholders.
 
-- KPI cards.
-- Customer value metrics.
-- Customer segmentation charts.
-- Revenue contribution analysis.
-- CLV category analysis.
-- Interactive slicers for filtering the analysis.
+**Dashboard File:** `Customer_Segmentation_CLV_Dashboard.pbix`
 
----
+### 8.5 Final Analytical Report
 
-## 6. Key Analysis Results
+A final project report was prepared to document the complete analytical workflow.
 
-### Overall CLV Analysis
+The report includes:
+
+- Executive Summary.
+- Project Objectives.
+- Dataset Overview.
+- Data Preparation.
+- Exploratory Data Analysis.
+- RFM Analysis.
+- Customer Segmentation.
+- K-Means Clustering.
+- CLV Analysis.
+- Customer Segment Interpretation.
+- Business Insights.
+- Recommendations.
+- Project Limitations.
+- Conclusion.
+
+**Report File:** `week4_final_project_report.md`
+
+### 8.6 Project Presentation
+
+Presentation material was prepared to summarize the project workflow and key findings.
+
+The presentation covers:
+
+- Project Title.
+- Project Overview.
+- Project Objectives.
+- Dataset Overview.
+- Data Cleaning.
+- Exploratory Data Analysis.
+- RFM Analysis.
+- Customer Segmentation.
+- K-Means Clustering.
+- CLV Analysis.
+- Power BI Dashboard.
+- Business Insights.
+- Recommendations.
+- Limitations and Future Scope.
+- Conclusion.
+
+**Presentation File:** `Customer_Segmentation_CLV_Project_Presentation.pptx`
+
+### 8.7 Week 4 Conclusion
+
+Week 4 completed the final analysis and documentation phase of the project.
+
+Customer segmentation results were interpreted, business insights and recommendations were documented, and an interactive Power BI dashboard was developed.
+
+The final report and presentation summarize the complete customer analytics workflow.
+
+# 9. Overall Project Results
+
+The project followed an end-to-end data analytics workflow, starting from raw transaction data and ending with customer segmentation, CLV analysis, a dashboard, and final documentation.
+
+| Week | Project Phase | Status |
+|---|---|---|
+| Week 1 | Data Preparation and Initial Exploration | Completed |
+| Week 2 | Exploratory Data Analysis and RFM Analysis | Completed |
+| Week 3 | Customer Segmentation and CLV Analysis | Completed |
+| Week 4 | Business Insights, Report and Dashboard | Completed |
+
+### Final Dataset Summary
 
 | Metric | Result |
 |---|---:|
-| Total Historical Revenue | 8,887,208.89 |
-| Average Historical CLV | 2,048.69 |
-| Median Historical CLV | 668.57 |
-| Average Order Value | 417.65 |
-| Average Purchase Frequency | 4.27 |
+| Original Records | 541,909 |
+| Cleaned Records | 392,692 |
+| Records Removed | 149,217 |
+| Unique Customers After Cleaning | 4,338 |
+| RFM Dataset Customers | 4,338 |
+| RFM Metrics | Recency, Frequency, Monetary |
 
-*Note: Monetary values are reported in the dataset's currency, GBP.*
+# 10. Project Structure
 
-### CLV Category Analysis
-
-Customers were categorized into four historical CLV groups.
-
-| CLV Category | Customers | Average CLV | Total Revenue |
-|---|---:|---:|---:|
-| Low Value | 1,085 | 178.03 | 193,166.38 |
-| Medium Value | 1,084 | 461.91 | 500,706.78 |
-| High Value | 1,084 | 1,066.18 | 1,155,744.35 |
-| Very High Value | 1,085 | 6,486.26 | 7,037,591.38 |
-
-The Very High Value category contributes the largest share of historical revenue.
-
-### Customer Segment Analysis
-
-| Cluster | Customers | Average CLV | Revenue Contribution |
-|---|---:|---:|---:|
-| Cluster 0 | 1,377 | 384.22 | 5.95% |
-| Cluster 1 | 938 | 385.39 | 4.07% |
-| Cluster 2 | 571 | 9,823.43 | 63.12% |
-| Cluster 3 | 1,452 | 1,644.26 | 26.86% |
-
-Cluster 2 has the highest average CLV and contributes approximately 63.12% of total revenue despite representing approximately 13.16% of customers.
-
-### Customer Retention Analysis
-
-Customers were classified using a Recency threshold of 90 days.
-
-| Customer Group | Customers | Customer Share | Total Revenue |
-|---|---:|---:|---:|
-| Recently Active | 2,889 | 66.6% | 7,854,666.60 |
-| Inactive | 1,449 | 33.4% | 1,032,542.29 |
-
-Approximately one-third of customers were classified as inactive based on the selected Recency threshold.
-
----
-
-## 7. Key Business Insights
-
-1. **High-value customer concentration:** A relatively small group of customers contributes a substantial share of historical revenue.
-
-2. **Cluster 2 is the most valuable segment:** It has the highest average CLV and contributes approximately 63.12% of total revenue.
-
-3. **Customer retention opportunity:** Approximately 33.4% of customers are classified as inactive using the 90-day Recency threshold.
-
-4. **Different customer behaviors:** Customer clusters vary in purchase frequency, recency, and monetary contribution.
-
-5. **CLV-based customer prioritization:** Categorizing customers by historical value can help businesses prioritize retention and engagement efforts.
-
----
-
-## 8. Business Recommendations
-
-### 1. Retain High-Value Customers
-
-Develop loyalty programs, personalized offers, and premium customer experiences for customers with high historical CLV.
-
-### 2. Reactivate Inactive Customers
-
-Launch targeted reactivation campaigns for customers who have not purchased recently.
-
-### 3. Improve Customer Engagement
-
-Use segment-specific communication and offers based on customer purchasing patterns.
-
-### 4. Focus on Revenue-Contributing Segments
-
-Prioritize retention strategies for segments that contribute a significant share of total revenue.
-
-### 5. Monitor Customer Value
-
-Regularly update RFM metrics and CLV analysis to monitor changes in customer behavior and business performance.
-
----
-
-## 9. Power BI Dashboard
-
-The Power BI dashboard provides an interactive view of customer segmentation and historical CLV.
-
-Dashboard features include:
-
-- KPI cards for key business metrics.
-- CLV category analysis.
-- Average CLV by customer segment.
-- Customer revenue contribution.
-- Interactive filtering using slicers.
-- Visual representation of customer value and behavior.
-
-### Dashboard Preview
-
-![Power BI Customer Segmentation and CLV Dashboard](reports/week4_final_dashboard.png)
-
-The Power BI dashboard file is available in the project repository:
-
-`Customer_Segmentation_CLV_Dashboard.pbix`
-
----
-
-## 10. Project Structure
+The project files are organized as follows:
 
 ```text
 Customer Segmentation and Lifetime Value (CLV) Analysis/
@@ -282,109 +567,77 @@ Customer Segmentation and Lifetime Value (CLV) Analysis/
 ├── Customer_Segmentation_CLV_Project_Presentation.pptx
 ├── README.md
 ├── requirements.txt
+├── .gitignore
 │
 ├── Data/
-│   ├── Online Retail.xlsx
+│   ├── raw/
+│   │   └── Online Retail.xlsx
+│   │
 │   └── processed/
 │       ├── cleaned_transactions.csv
 │       ├── customer_rfm.csv
-│       ├── customer_segments.csv
-│       ├── customer_clv_analysis.csv
-│       ├── customer_clv_ranking.csv
-│       ├── clv_category_analysis.csv
-│       ├── segment_clv_analysis.csv
-│       └── other analysis outputs
+│       └── [additional processed datasets]
 │
 ├── Database/
-│   └── customer_segmentation.db
+│   └── [database-related files]
 │
-├── sql/
-│   └── customer_rfm_analysis.sql
+├── reports/
+│   ├── week2_summary.md
+│   ├── week3_summary.md
+│   └── week4_final_project_report.md
 │
-└── reports/
-    ├── week2_summary.md
-    ├── week3_summary.md
-    ├── week4_final_project_report.md
-    ├── week4_final_dashboard.png
-    └── analysis charts
+└── sql/
+    └── [SQL analysis files]
 ```
 
----
+**Note:** The structure lists the main project files and expected data organization. Include only files and folders that are present in the final project repository.
 
-## 11. How to Run the Project
+# 11. Project Limitations
 
-### Prerequisites
+The project has some limitations that should be considered:
 
-- Python 3.x
-- Jupyter Notebook
-- Power BI Desktop
-- Git
+- The dataset represents historical retail transactions.
+- CustomerID is missing from some original transaction records.
+- The dataset does not provide detailed customer demographic information.
+- RFM metrics summarize customer behavior but may not capture every aspect of customer value.
+- K-Means clustering results depend on feature preparation and clustering settings.
+- Customer segments may change as new transactions become available.
+- CLV analysis is based on the available transaction history and assumptions used in the analysis.
+- The analysis does not represent a live customer analytics system.
 
-### Step 1: Clone the Repository
+The segmentation and CLV results should be interpreted within the limitations of the available dataset.
 
-```bash
-git clone https://github.com/prensi01/infyntrek-customer-segmentation-clv-analysis.git
-```
+# 12. Future Scope
 
-### Step 2: Navigate to the Project Folder
+The project can be improved further through the following activities:
 
-```bash
-cd infyntrek-customer-segmentation-clv-analysis
-```
+- Update customer segmentation using newer transaction data.
+- Compare different clustering algorithms.
+- Evaluate alternative clustering settings.
+- Improve customer segment interpretation.
+- Develop more advanced CLV estimation approaches.
+- Incorporate customer demographic information when available.
+- Build customer retention prediction models.
+- Develop customer churn analysis.
+- Create automated customer segmentation pipelines.
+- Enhance the Power BI dashboard with additional business KPIs.
+- Monitor customer segment changes over time.
 
-### Step 3: Install Dependencies
+# 13. Final Conclusion
 
-```bash
-pip install -r requirements.txt
-```
+The Customer Segmentation and Lifetime Value (CLV) Analysis project demonstrates an end-to-end customer analytics workflow using retail transaction data.
 
-### Step 4: Run the Jupyter Notebook
+The project covered data preparation, SQL-based analysis, exploratory data analysis, RFM analysis, customer segmentation using K-Means clustering, CLV analysis, business insights, and Power BI dashboard development.
 
-Open the notebook:
+The original dataset contained 541,909 transaction records. After data cleaning, 392,692 records and 4,338 unique customers remained.
 
-`Customer_Segmentation_CLV.ipynb`
+RFM analysis was used to summarize customer purchasing behavior through Recency, Frequency, and Monetary value. K-Means clustering was used to identify customer groups with similar purchasing patterns.
 
-Run the cells sequentially to review the analysis workflow.
+The project demonstrates how customer analytics can support customer segmentation, customer value analysis, targeted marketing, and retention strategies.
 
-### Step 5: Open the Power BI Dashboard
+Overall, this project provided practical experience in Python, SQL, data cleaning, exploratory data analysis, machine learning, customer analytics, data visualization, and business reporting.
 
-Open:
-
-`Customer_Segmentation_CLV_Dashboard.pbix`
-
-using Power BI Desktop.
-
----
-
-## 12. Limitations
-
-- The analysis is based on historical transactional retail data.
-- The dataset does not represent actual Infyntrek fintech customer data.
-- Historical CLV is not a prediction of future customer value.
-- Customer segmentation results depend on the selected features and clustering configuration.
-- The inactive customer classification uses a selected Recency threshold of 90 days.
-- Business recommendations should be validated against real business data before implementation.
-
----
-
-## 13. Conclusion
-
-This project demonstrates an end-to-end customer analytics workflow, including data preparation, RFM analysis, K-Means customer segmentation, historical CLV analysis, SQL-based analysis, data visualization, and Power BI dashboard development.
-
-The analysis identified customer groups with different purchasing behaviors and revenue contributions. The findings provide a foundation for customer retention, targeted marketing, and customer value-based business strategies.
-
-The project strengthened practical skills in Python, SQL, data analytics, customer segmentation, visualization, and business insight generation.
-
----
-
-## 14. GitHub Repository
-
-**Project Repository:**  
-https://github.com/prensi01/infyntrek-customer-segmentation-clv-analysis
-
----
-
-## Acknowledgment
-
-This project was completed as part of the Data Analyst Internship at Infyntrek, with the objective of developing practical skills in customer analytics and data-driven business decision-making.
-
+**Project:** Customer Segmentation and Lifetime Value (CLV) Analysis  
+**Organization:** Infyntrek  
+**Program:** Data Analyst Internship  
+**Project Domain:** Retail Analytics and Customer Segmentation
